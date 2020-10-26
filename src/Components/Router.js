@@ -20,7 +20,7 @@ export default () => (
 );
 
 // ! <Router>는 only one child element만 가질 수 있다
-// * <BrowserRouter />: HTML5 히스토리 API를 사용하여 주소를 관리하는 라우터(해쉬뱅 모드 사용 안함)
+// * <BrowserRouter />: HTML5 히스토리 API를 사용하여 주소를 관리하는 라우터(해쉬맵 모드 사용 안함)
 // * <Route />: 요청 경로와 렌더링할 컴포넌트를 설정한다, <Router></Router> 안에 존재해야 한다
 // * <Switch />: 하위에 라우터 중 하나를 선택한다
 // * <Redirect />: 요청 경로를 다른 경로로 리다이렉션한다
