@@ -1,4 +1,5 @@
 import React from "react"
+import { moviesApi } from "../../api"
 import HomePresenter from "./HomePresenter"
 
 // ? - 컨테이너 : data를 가지고, state(상태값)가지고, api를 불러와서 모든 로직을 처리함 (데이터 담당)
@@ -13,6 +14,38 @@ export default class extends React.Component {
     error: null,
     loading: true
   }
+
+  async componentDidMount() {
+    try {
+      const { 
+        data: { results: nowPlaying } 
+      } = await moviesApi.nowPlaying();
+      // * JavaScript는 기본적으로 비동기 논블로킹 언어
+      // * await를 붙이지 않고 nowPlaying 실행 시 response 객체가 아닌 Promise 객체가 return
+      // * await를 붙이면 response의 성공/실패 여부에 상관없이 데이터를 받고난 후 나머지를 실행
+      const {
+        data: { results: upcoming }
+      } = await moviesApi.upcoming();
+      const {
+        data: { results: popular }
+      } = await moviesApi.popular();
+
+      this.setState({
+        nowPlaying,
+        upcoming,
+        popular
+      });
+    } catch {
+      this.setState({
+        error: "Can't find movies information"
+      })
+    } finally
+  {
+    this.setState({
+      loading: false
+    })
+  }  
+}
 
   render() {
     const { nowPlaying, upcoming, popular, error, loading } = this.state
