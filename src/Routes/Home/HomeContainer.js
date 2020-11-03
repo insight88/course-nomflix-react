@@ -39,13 +39,12 @@ export default class extends React.Component {
       this.setState({
         error: "Can't find movies information"
       })
-    } finally
-  {
-    this.setState({
-      loading: false
-    })
-  }  
-}
+    } finally {
+      this.setState({
+        loading: false
+      })
+    }  
+  }
 
   render() {
     const { nowPlaying, upcoming, popular, error, loading } = this.state
