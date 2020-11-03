@@ -1,5 +1,5 @@
 import React from "react"
-import { tvApi } from "../../api";
+import { moviesApi, tvApi } from "../../api";
 import SearchPresenter from "./SearchPresenter"
 
 export default class extends React.Component {
@@ -18,7 +18,7 @@ export default class extends React.Component {
     }
   };
 
-  searchByTerm = () => {
+  searchByTerm = async () => {
     const { searchTerm } = this.state;
     this.setState({ loading: true });
     try {

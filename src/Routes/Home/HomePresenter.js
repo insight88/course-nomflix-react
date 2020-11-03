@@ -9,7 +9,7 @@ const Container = styled.div`
     padding: 0px 10px;
 `
 
-const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => loading ? <Loader /> : 
+const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => loading ? <Loader /> : (
     <Container>
         {nowPlaying && nowPlaying.length > 0 && (
             <Section title="Now Playing">
@@ -28,6 +28,7 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => loa
             </Section>
         )}
     </Container>
+);
 
 HomePresenter.propTypes = {
     nowPlaying: PropTypes.array,

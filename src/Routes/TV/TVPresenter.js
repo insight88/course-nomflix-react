@@ -9,7 +9,7 @@ const Container = styled.div`
     padding: 0px 10px;
 `;
 
-const TVPresenter = ({ topRated, popular, airingToday, loading, error }) => loading ? <Loader /> : 
+const TVPresenter = ({ topRated, popular, airingToday, loading, error }) => loading ? <Loader /> : (
     <Container>
         {topRated && topRated.length > 0 && (
             <Section title="Top Rated Shows">
@@ -27,6 +27,7 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) => load
             </Section>
         )}
     </Container>
+);
 
 TVPresenter.propTypes = {
     topRated: PropTypes.array,
